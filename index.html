@@ -3,99 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tony Kwok - Digital Card</title>
+    <title>Chris Lau | Digital Card</title>
 
     <style>
       body {
-        font-family: Arial, sans-serif;
-        background: #f4f6f8;
+        margin: 0;
+        font-family: "Segoe UI", Roboto, sans-serif;
+        background: #0f172a;
+        color: white;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        margin: 0;
       }
 
       .card {
-        background: white;
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 14px;
         padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        max-width: 350px;
-        width: 90%;
+        width: 340px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        position: relative;
       }
 
-      .avatar {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        background: #ddd;
-        margin: auto;
-        margin-bottom: 15px;
-      }
-
-      h1 {
-        margin: 10px 0 5px 0;
-      }
-
-      .title {
-        color: #777;
+      .header {
         margin-bottom: 20px;
       }
 
+      .name {
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .role {
+        color: #94a3b8;
+        margin-top: 4px;
+        font-size: 14px;
+      }
+
+      .divider {
+        height: 1px;
+        background: #1f2937;
+        margin: 18px 0;
+      }
+
       .info {
+        font-size: 14px;
         margin: 6px 0;
-        color: #444;
+        color: #e5e7eb;
+      }
+
+      .qr {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .qr img {
+        width: 110px;
+        opacity: 0.95;
       }
 
       .buttons {
         margin-top: 20px;
         display: flex;
-        flex-direction: column;
         gap: 10px;
       }
 
       button {
-        padding: 12px;
-        border: none;
+        flex: 1;
+        padding: 10px;
         border-radius: 8px;
-        font-size: 16px;
+        border: none;
+        font-size: 14px;
         cursor: pointer;
       }
 
       .share {
-        background: #007aff;
+        background: #2563eb;
         color: white;
       }
 
       .download {
-        background: #333;
+        background: #374151;
         color: white;
       }
 
       button:hover {
         opacity: 0.9;
       }
+
+      .footer {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 11px;
+        color: #64748b;
+      }
+
+      .grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        border-radius: 14px;
+      }
     </style>
   </head>
+
   <body>
     <div class="card">
-      <div class="avatar"></div>
+      <div class="grid"></div>
 
-      <h1>Tony Kwok</h1>
-      <div class="title">Property / Technology</div>
+      <div class="header">
+        <div class="name">Chris Lau</div>
+        <div class="role">Engineering / Technology</div>
+      </div>
+
+      <div class="divider"></div>
 
       <div class="info">📞 +44 1234 567890</div>
-      <div class="info">✉ tony@email.com</div>
+      <div class="info">✉ chris@email.com</div>
       <div class="info">🌐 yourwebsite.com</div>
 
       <div class="buttons">
-        <button class="share" onclick="shareCard()">Share Contact</button>
+        <button class="share" onclick="shareCard()">Share</button>
 
-        <a href="tony-kwok.vcf" download>
+        <a href="chris-lau.vcf" download style="flex: 1">
           <button class="download">Download vCard</button>
         </a>
+      </div>
+
+      <div class="qr">
+        <img src="qrcode.svg" alt="QR Code" />
       </div>
     </div>
 
@@ -103,12 +149,12 @@
       function shareCard() {
         if (navigator.share) {
           navigator.share({
-            title: "Tony Kwok",
-            text: "My Digital Business Card",
+            title: "Chris Lau",
+            text: "Connect with me",
             url: window.location.href,
           });
         } else {
-          alert("Sharing not supported on this device.");
+          alert("Share not supported on this device");
         }
       }
     </script>
