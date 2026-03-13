@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-HK">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JET Engineering</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        margin: 0;
+        background: #f5f7f6;
+      }
+
+      .header {
+        background: #6bbf59;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .logo {
+        width: 90px;
+        height: 90px;
+        background: #7ed957;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+        font-weight: bold;
+        margin: auto;
+        color: #ffe56b;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .primary {
+        background: #6bbf59;
+        color: white;
+      }
+
+      .whatsapp {
+        background: #25d366;
+        color: white;
+      }
+
+      .secondary {
+        background: #ddd;
+        color: #333;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="logo">JET</div>
+
+      <h2>郭芷妍</h2>
+
+      <p>明捷工程有限公司</p>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <p>📱 電話：9092-9511</p>
+        <p>✉ 電郵：jet@jeteng.com.hk</p>
+
+        <div class="buttons">
+          <a class="btn primary" href="fk.vcf" download> ⬇ 下載名片 </a>
+
+          <a class="btn whatsapp" href="https://wa.me/85290929511">
+            💬 WhatsApp
+          </a>
+
+          <button class="btn secondary" onclick="shareCard()">📤 分享</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>公司服務</h3>
+
+        <p>✦ 工程服務</p>
+        <p>✦ 機場設施支援</p>
+        <p>✦ 物業管理工程</p>
+      </div>
+
+      <div class="card">
+        <h3>關於我們</h3>
+
+        <p>公司簡介內容（稍後補充）。</p>
+      </div>
+    </div>
+
+    <script>
+      function shareCard() {
+        if (navigator.share) {
+          navigator.share({
+            title: "郭芷妍",
+            text: "明捷工程有限公司",
+            url: window.location.href,
+          });
+        } else {
+          alert("Share not supported on this device");
+        }
+      }
+    </script>
+  </body>
+</html>

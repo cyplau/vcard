@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-HK">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #e8f5ea;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .card {
+        background: white;
+        width: 340px;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+        background: #7ed957;
+        border-radius: 50%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 32px;
+        color: #ffe56b;
+      }
+
+      /* BUTTON STYLE */
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        width: 100%;
+        box-sizing: border-box;
+
+        margin-top: 12px;
+        padding: 12px;
+
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 500;
+
+        text-decoration: none;
+        border: none;
+
+        cursor: pointer;
+
+        transition: all 0.2s;
+      }
+
+      /* vcard */
+
+      .vcard {
+        background: #6bbf59;
+        color: white;
+      }
+
+      /* whatsapp */
+
+      .whatsapp {
+        background: #25d366;
+        color: white;
+      }
+
+      /* share */
+
+      .share {
+        background: #e0e0e0;
+        color: #333;
+      }
+
+      /* hover */
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="logo">JET</div>
+
+      <h2>郭芷妍</h2>
+
+      <p>明捷工程有限公司</p>
+
+      <p>工程服務 • 機場設施 • 物業管理</p>
+
+      <a class="btn vcard" href="fk.vcf" download> ⬇ 加入聯絡人 </a>
+
+      <a class="btn whatsapp" href="https://wa.me/85290929511"> 💬 WhatsApp </a>
+
+      <a
+        class="btn share"
+        href="#"
+        onclick="
+          shareCard();
+          return false;
+        "
+      >
+        📤 分享名片
+      </a>
+    </div>
+
+    <script>
+      function shareCard() {
+        if (navigator.share) {
+          navigator.share({
+            title: "郭芷妍",
+            text: "明捷工程有限公司",
+            url: window.location.href,
+          });
+        } else {
+          alert("Share not supported on this device");
+        }
+      }
+    </script>
+  </body>
+</html>
